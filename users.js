@@ -7,14 +7,17 @@ const addUser = ({ id, name, room }) => {
   const existingUser = users.find(user => user.room === room && user.name === name);
 
   if (existingUser) {
+    console.log('existing')
     return {
       error: 'Username Already taken'
     }
   }
-
   const user = { id, name, room };
+console.log('from addUser', user)
 
   users.push(user);
+
+  return { user };
 };
 
 const removeUsers = (id) => {
